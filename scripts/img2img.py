@@ -80,7 +80,7 @@ def main():
         type=str,
         nargs="?",
         help="dir to write results to",
-        default="outputs/img2img-samples"
+        default="images/img2img-samples"
     )
 
     parser.add_argument(
