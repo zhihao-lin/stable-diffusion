@@ -1,0 +1,11 @@
+Collecting imageio
+  Using cached imageio-2.22.0-py3-none-any.whl (3.4 MB)
+Requirement already satisfied: pillow>=8.3.2 in /home/zhi-hao/anaconda3/envs/ldm/lib/python3.8/site-packages (from imageio) (9.2.0)
+Requirement already satisfied: numpy in /home/zhi-hao/anaconda3/envs/ldm/lib/python3.8/site-packages (from imageio) (1.23.3)
+Collecting packaging
+  Using cached packaging-21.3-py3-none-any.whl (40 kB)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /home/zhi-hao/anaconda3/envs/ldm/lib/python3.8/site-packages (from packaging) (3.0.9)
+Collecting six
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, packaging, imageio
+Successfully installed imageio-2.22.0 packaging-21.3 six-1.16.0
