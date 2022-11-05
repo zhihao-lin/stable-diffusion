@@ -44,8 +44,8 @@ def read_image_paths(dir_path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-dir_src')
-    parser.add_argument('-dir_mask')
     parser.add_argument('-dir_out')
+    parser.add_argument('-mask_path')
     parser.add_argument('-prompt')
     parser.add_argument('-samples_num', type=int, default=4, help='Number of output images ~[1, 8]')
     parser.add_argument('-steps_num', type=int, default=64, help='~[2, 512]')
@@ -55,7 +55,7 @@ def main():
     args = parser.parse_args()
 
     img_paths  = read_image_paths(args.dir_src)
-    mask_paths = read_image_paths(args.dir_mask)
+    masks = np.load(args.mask_path).astype(np.uint8)*255
     img_num = len(img_paths)
 
     pipe = StableDiffusionInpaintPipeline.from_pretrained(
@@ -77,7 +77,7 @@ def main():
     
     for i in tqdm(range(img_num)):
         img  = Image.open(img_paths[i])
-        mask = Image.open(mask_paths[i])
+        mask = Image.fromarray(masks[i])
         h_old, w_old = img.size
         h_new, w_new = 512, 512
         img  = img.resize((h_new, w_new), Image.Resampling.LANCZOS)

@@ -199,6 +199,8 @@ class StableDiffusionInpaintPipeline(DiffusionPipeline):
 
         # check sizes
         if not mask.shape == init_latents.shape:
+            print(mask.shape)
+            print(init_latents.shape)
             raise ValueError("The mask and init_image should be the same size!")
 
         # get the original timestep using init_timestep
